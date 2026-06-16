@@ -82,6 +82,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#0a0a0a" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "KINK — Sneakers & Streetwear, Tashkent" },
+      { name: "twitter:title", content: "KINK — Sneakers & Streetwear, Tashkent" },
+      { property: "og:description", content: "The largest sneaker store in Tashkent. Parkent 283. Open daily 11:00–22:00." },
+      { name: "twitter:description", content: "The largest sneaker store in Tashkent. Parkent 283. Open daily 11:00–22:00." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd028d34-2048-4d54-a1eb-4a6c552d1390/id-preview-add28dce--4081583f-8238-4e71-b71c-16b4802a5e6a.lovable.app-1781633998124.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd028d34-2048-4d54-a1eb-4a6c552d1390/id-preview-add28dce--4081583f-8238-4e71-b71c-16b4802a5e6a.lovable.app-1781633998124.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
