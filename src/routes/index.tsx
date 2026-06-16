@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Marquee } from "@/components/site/Marquee";
@@ -6,6 +7,13 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { products } from "@/lib/products";
 import hero from "@/assets/hero-sneaker.jpg";
 import storeInterior from "@/assets/store-interior.jpg";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
