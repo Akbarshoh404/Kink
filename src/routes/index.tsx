@@ -146,7 +146,7 @@ function HomePage() {
             >
               View all →
             </Link>
-          </div>
+          </motion.div>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p, i) => (
               <ProductCard key={p.id} product={p} i={i} />
