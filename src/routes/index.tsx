@@ -12,7 +12,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const as [number, number, number, number] },
 };
 
 export const Route = createFileRoute("/")({
@@ -49,7 +49,7 @@ function HomePage() {
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
                 className="block"
               >
                 WALK
@@ -57,7 +57,7 @@ function HomePage() {
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] as const }}
                 className="block text-primary"
               >
                 LOUD.
@@ -102,7 +102,7 @@ function HomePage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
             className="relative md:col-span-5"
           >
             <div className="absolute -right-10 -top-10 hidden font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:block">
