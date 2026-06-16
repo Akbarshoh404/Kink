@@ -37,12 +37,31 @@ function HomePage() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-20 pt-12 md:grid-cols-12 md:gap-4 md:px-8 md:pt-20">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">
+            <motion.p
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="font-mono text-xs uppercase tracking-widest text-primary"
+            >
               ◆ Parkent 283 · Tashkent · Since day one
-            </p>
+            </motion.p>
             <h1 className="mt-6 font-display text-7xl leading-[0.85] tracking-tight text-foreground md:text-[9rem] lg:text-[11rem]">
-              WALK<br />
-              <span className="text-primary">LOUD.</span>
+              <motion.span
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="block"
+              >
+                WALK
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+                className="block text-primary"
+              >
+                LOUD.
+              </motion.span>
             </h1>
             <p className="mt-8 max-w-md text-base text-muted-foreground md:text-lg">
               The largest sneaker store in Tashkent. From everyday classics to the
