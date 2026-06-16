@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Marquee } from "@/components/site/Marquee";
@@ -6,6 +7,13 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { products } from "@/lib/products";
 import hero from "@/assets/hero-sneaker.jpg";
 import storeInterior from "@/assets/store-interior.jpg";
+
+const fadeUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const as [number, number, number, number] },
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,12 +37,31 @@ function HomePage() {
       <section className="relative overflow-hidden border-b border-border">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-20 pt-12 md:grid-cols-12 md:gap-4 md:px-8 md:pt-20">
           <div className="md:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">
+            <motion.p
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="font-mono text-xs uppercase tracking-widest text-primary"
+            >
               ◆ Parkent 283 · Tashkent · Since day one
-            </p>
+            </motion.p>
             <h1 className="mt-6 font-display text-7xl leading-[0.85] tracking-tight text-foreground md:text-[9rem] lg:text-[11rem]">
-              WALK<br />
-              <span className="text-primary">LOUD.</span>
+              <motion.span
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+                className="block"
+              >
+                WALK
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] as const }}
+                className="block text-primary"
+              >
+                LOUD.
+              </motion.span>
             </h1>
             <p className="mt-8 max-w-md text-base text-muted-foreground md:text-lg">
               The largest sneaker store in Tashkent. From everyday classics to the
@@ -72,17 +99,22 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative md:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
+            className="relative md:col-span-5"
+          >
             <div className="absolute -right-10 -top-10 hidden font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:block">
               ▲ Featured · {new Date().toLocaleDateString("en-US", { month: "short", year: "numeric" })}
             </div>
-            <div className="relative aspect-square w-full overflow-hidden border border-border bg-card">
+            <div className="group relative aspect-square w-full overflow-hidden border border-border bg-card">
               <img
                 src={hero}
                 alt="Featured sneaker on a black backdrop"
                 width={1024}
                 height={1024}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-background/80 p-4 backdrop-blur">
                 <div>
@@ -92,7 +124,7 @@ function HomePage() {
                 <p className="font-mono text-xs text-primary">1 450 000 UZS</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -101,7 +133,7 @@ function HomePage() {
       {/* FEATURED */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8">
-          <div className="flex items-end justify-between">
+          <motion.div {...fadeUp} className="flex items-end justify-between">
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-primary">▌ 01 — Featured</p>
               <h2 className="mt-4 font-display text-5xl tracking-tight text-foreground md:text-7xl">
@@ -114,7 +146,7 @@ function HomePage() {
             >
               View all →
             </Link>
-          </div>
+          </motion.div>
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p, i) => (
               <ProductCard key={p.id} product={p} i={i} />
