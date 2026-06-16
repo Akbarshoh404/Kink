@@ -99,17 +99,22 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="relative md:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative md:col-span-5"
+          >
             <div className="absolute -right-10 -top-10 hidden font-mono text-[10px] uppercase tracking-widest text-muted-foreground md:block">
               ▲ Featured · {new Date().toLocaleDateString("en-US", { month: "short", year: "numeric" })}
             </div>
-            <div className="relative aspect-square w-full overflow-hidden border border-border bg-card">
+            <div className="group relative aspect-square w-full overflow-hidden border border-border bg-card">
               <img
                 src={hero}
                 alt="Featured sneaker on a black backdrop"
                 width={1024}
                 height={1024}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-background/80 p-4 backdrop-blur">
                 <div>
@@ -119,7 +124,7 @@ function HomePage() {
                 <p className="font-mono text-xs text-primary">1 450 000 UZS</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -128,7 +133,7 @@ function HomePage() {
       {/* FEATURED */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-4 py-20 md:px-8">
-          <div className="flex items-end justify-between">
+          <motion.div {...fadeUp} className="flex items-end justify-between">
             <div>
               <p className="font-mono text-xs uppercase tracking-widest text-primary">▌ 01 — Featured</p>
               <h2 className="mt-4 font-display text-5xl tracking-tight text-foreground md:text-7xl">
