@@ -1,0 +1,74 @@
+[
+  {
+    "id": "r001",
+    "productId": "p001",
+    "author": "Amir T.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=90",
+    "rating": 5,
+    "date": "2024-11-10",
+    "title": "The real deal",
+    "body": "Legit Nike AF1s, came with all the original box and accessories. Price is fair compared to resellers. Will definitely be back.",
+    "verified": true,
+    "outfitImage": null
+  },
+  {
+    "id": "r002",
+    "productId": "p003",
+    "author": "Kamola R.",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=90",
+    "rating": 5,
+    "date": "2024-12-01",
+    "title": "Samba obsession continues",
+    "body": "Found the black/white Samba here when it was sold out everywhere else. Staff knew exactly what I was looking for. 10/10.",
+    "verified": true,
+    "outfitImage": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=90"
+  },
+  {
+    "id": "r003",
+    "productId": "p006",
+    "author": "Bobur S.",
+    "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&q=90",
+    "rating": 5,
+    "date": "2024-10-15",
+    "title": "GEL-Kayano 14 — the hype is real",
+    "body": "Heard about these through TikTok. KINK had them in my size. Quality is excellent, the cushioning is unreal for daily wear.",
+    "verified": true,
+    "outfitImage": null
+  },
+  {
+    "id": "r004",
+    "productId": "p009",
+    "author": "Dilnoza M.",
+    "avatar": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=90",
+    "rating": 5,
+    "date": "2024-11-28",
+    "title": "Tech Fleece is worth every sum",
+    "body": "Been eyeing the Nike Tech Fleece for months. The quality is just different — warm, light, and the fit is clean. Staff was helpful with sizing.",
+    "verified": true,
+    "outfitImage": "https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&q=90"
+  },
+  {
+    "id": "r005",
+    "productId": "p002",
+    "author": "Jasur K.",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&q=90",
+    "rating": 4,
+    "date": "2024-12-05",
+    "title": "Got the Panda Dunk",
+    "body": "Hard shoe to find in Tashkent. KINK had size 42 in stock. Came with the right packaging. Dropped half a star only because the wait at checkout was long.",
+    "verified": true,
+    "outfitImage": null
+  },
+  {
+    "id": "r006",
+    "productId": "p011",
+    "author": "Sarvinoz B.",
+    "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&q=90",
+    "rating": 5,
+    "date": "2024-12-10",
+    "title": "KINK tee hits different",
+    "body": "Love supporting local brands. The KINK tee is heavy cotton, screen print is sharp, and the fit is exactly what I wanted. Black one is my daily.",
+    "verified": true,
+    "outfitImage": null
+  }
+]

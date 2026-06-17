@@ -27,9 +27,9 @@ export function ProductCard({ product, i = 0 }: { product: Product; i?: number }
           </span>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        {product.tag && (
+        {product.tags?.[0] && (
           <span className="absolute left-3 top-3 bg-primary px-2 py-1 font-mono text-[10px] tracking-widest text-primary-foreground">
-            {product.tag}
+            {product.tags[0]}
           </span>
         )}
         <span className="absolute right-3 top-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "b001",
+    "title": "New Season Drop",
+    "subtitle": "Nike. Adidas. Asics. New Balance.",
+    "description": "Fresh stock just landed. Sneakers, tees, jeans, and accessories — all in one spot in Tashkent.",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1400&q=90",
+    "cta": "Shop New Arrivals",
+    "ctaLink": "/shop?tag=NEW",
+    "endsAt": null,
+    "active": true,
+    "type": "hero"
+  },
+  {
+    "id": "b002",
+    "title": "Limited Pairs — Week 48",
+    "subtitle": "Dunk Low Panda · Jordan 1 Mid · NB 550",
+    "description": "Limited sizes available in-store and online. First come, first served. No holds.",
+    "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800&q=90",
+    "cta": "Grab Your Size",
+    "ctaLink": "/shop?tag=HOT",
+    "endsAt": "2025-02-01T22:00:00Z",
+    "active": true,
+    "type": "limited"
+  },
+  {
+    "id": "b003",
+    "title": "Archive Sale — Up to 20% Off",
+    "subtitle": "Puma, Converse, selected Nike styles.",
+    "description": "Previous season stock. Same quality, reduced prices.",
+    "image": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&q=90",
+    "cta": "View Sale",
+    "ctaLink": "/shop?tag=SALE",
+    "endsAt": null,
+    "active": true,
+    "type": "promo"
+  }
+]

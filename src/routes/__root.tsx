@@ -8,6 +8,13 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { QuickView } from "@/components/shop/QuickView";
+import { MobileMenu } from "@/components/layout/MobileMenu";
+import { useThemeStore } from "@/store/themeStore";
+import { useLangStore } from "@/store/langStore";
+import { useTranslation } from "react-i18next";
+import "@/i18n";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -78,22 +85,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "KINK — Sneakers & Streetwear, Tashkent" },
-      { name: "description", content: "The largest sneaker store in Tashkent. Parkent 283. Open daily 11:00–22:00." },
+      { name: "description", content: "Tashkentning eng katta krossovka do'koni. Nike, Adidas, Puma, Asics va boshqa brendlar. Parkent ko'chasi 283. Har kuni 11:00–22:00." },
       { name: "theme-color", content: "#0a0a0a" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "KINK — Sneakers & Streetwear, Tashkent" },
       { name: "twitter:title", content: "KINK — Sneakers & Streetwear, Tashkent" },
-      { property: "og:description", content: "The largest sneaker store in Tashkent. Parkent 283. Open daily 11:00–22:00." },
-      { name: "twitter:description", content: "The largest sneaker store in Tashkent. Parkent 283. Open daily 11:00–22:00." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd028d34-2048-4d54-a1eb-4a6c552d1390/id-preview-add28dce--4081583f-8238-4e71-b71c-16b4802a5e6a.lovable.app-1781633998124.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cd028d34-2048-4d54-a1eb-4a6c552d1390/id-preview-add28dce--4081583f-8238-4e71-b71c-16b4802a5e6a.lovable.app-1781633998124.png" },
+      { property: "og:description", content: "Nike, Adidas, Puma, Asics, Vans, New Balance & KINK. Parkent ko'chasi 283, Tashkent." },
+      { name: "twitter:description", content: "Tashkent's sneaker & streetwear store. Parkent 283." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,13 +121,41 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function ThemeInit() {
+  const theme = useThemeStore((s) => s.theme);
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.classList.add("light");
+      root.classList.remove("dark");
+    } else {
+      root.classList.add("dark");
+      root.classList.remove("light");
+    }
+  }, [theme]);
+  return null;
+}
+
+function LangInit() {
+  const locale = useLangStore((s) => s.locale);
+  const { i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage(locale);
+  }, [locale, i18n]);
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <ThemeInit />
+      <LangInit />
       <Outlet />
+      <CartDrawer />
+      <QuickView />
+      <MobileMenu />
     </QueryClientProvider>
   );
 }
