@@ -3,18 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-// Official brand product images from Nike/Adidas/Puma CDNs
 const MOSAIC = [
-  "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e6da4186-4c37-4234-8bfa-26c0a86df85f/air-force-1-07-shoes-WrLlWX.png",
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/cbab5c7e1afb45de8613ae5c00c3a77e_9366/Samba_OG_Shoes_Black_B75807_01_standard.jpg",
-  "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/374915/01/sv01/fnd/PNA/fmt/png/Suede-Classic-XXI-Sneakers",
-  "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/9b49280b-f77e-4e54-88f1-4e97879a5817/dunk-low-retro-shoes-WrLlWX.png",
-  "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/96ab4f5b89c8419888bfae32014ae701_9366/Stan_Smith_Shoes_White_M20324_01_standard.jpg",
-  "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/369571/63/sv01/fnd/PNA/fmt/png/RS-X-Reinvention-Sneakers",
-];
-
-// Fallback Unsplash images if CDN fails
-const FALLBACK = [
   "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=85",
   "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=85",
   "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=85",
@@ -23,13 +12,12 @@ const FALLBACK = [
   "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=85",
 ];
 
-function MosaicImage({ src, fallback, alt }: { src: string; fallback: string; alt: string }) {
+function MosaicImage({ src, alt }: { src: string; alt: string }) {
   return (
     <img
       src={src}
       alt={alt}
-      onError={(e) => { (e.currentTarget as HTMLImageElement).src = fallback; }}
-      className="h-full w-full object-contain p-2 transition-transform duration-700 hover:scale-105"
+      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
     />
   );
 }
@@ -168,7 +156,7 @@ export function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.3 + i * 0.08 }}
                     className={`overflow-hidden bg-card ${i === 1 ? "flex-[1.8]" : "flex-1"}`}
                   >
-                    <MosaicImage src={MOSAIC[i]} fallback={FALLBACK[i]} alt="KINK product" />
+                    <MosaicImage src={MOSAIC[i]} alt="KINK product" />
                   </motion.div>
                 ))}
               </div>
@@ -182,7 +170,7 @@ export function HeroSection() {
                     transition={{ duration: 0.6, delay: 0.38 + (i - 3) * 0.08 }}
                     className={`overflow-hidden bg-card ${i === 4 ? "flex-[1.8]" : "flex-1"}`}
                   >
-                    <MosaicImage src={MOSAIC[i]} fallback={FALLBACK[i]} alt="KINK product" />
+                    <MosaicImage src={MOSAIC[i]} alt="KINK product" />
                   </motion.div>
                 ))}
               </div>

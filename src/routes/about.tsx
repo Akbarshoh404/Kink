@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { useTranslation } from "react-i18next";
+import storeInterior from "@/assets/store-interior.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({ meta: [{ title: "About — KINK Tashkent" }] }),
@@ -19,7 +20,7 @@ function AboutPage() {
         {/* Hero */}
         <section className="relative h-[55vh] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1556906781-9a412961a28c?w=1400&q=90"
+            src={storeInterior}
             alt="KINK Store"
             className="absolute inset-0 h-full w-full object-cover"
           />

@@ -4,6 +4,10 @@ import { X, Heart, ShoppingBag } from "lucide-react";
 import { useUIStore } from "@/store/uiStore";
 import { useCartStore } from "@/store/cartStore";
 import { useWishlistStore } from "@/store/wishlistStore";
+import { useLangStore } from "@/store/langStore";
+import type { Locale } from "@/i18n/translations";
+
+const LOCALES: Locale[] = ["en", "ru", "uz"];
 
 const nav = [
   { to: "/", label: "Home" },
@@ -22,6 +26,7 @@ export function MobileMenu() {
   const openCart = useCartStore((s) => s.openCart);
   const cartCount = useCartStore((s) => s.getItemCount());
   const wishlistCount = useWishlistStore((s) => s.ids.length);
+  const { locale, set: setLocale } = useLangStore();
 
   return (
     <AnimatePresence>
@@ -72,6 +77,26 @@ export function MobileMenu() {
                 </motion.div>
               ))}
             </nav>
+
+            {/* Language switcher */}
+            <div className="border-t border-border px-5 py-4">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">Language</p>
+              <div className="flex gap-1">
+                {LOCALES.map((l) => (
+                  <button
+                    key={l}
+                    onClick={() => setLocale(l)}
+                    className={`flex-1 py-2 font-mono text-[10px] uppercase tracking-wider border transition-colors ${
+                      locale === l
+                        ? "bg-foreground text-background border-foreground"
+                        : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/40"
+                    }`}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             {/* Store info */}
             <div className="border-t border-border px-5 py-4">
